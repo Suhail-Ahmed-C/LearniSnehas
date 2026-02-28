@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#FF6B9D"/>
+  <title>LearniSnehas – My First Learning Book 📚</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== FLOATING STARS BACKGROUND ===== -->
+<div id="starsContainer" aria-hidden="true"></div>
+
+<!-- ===== TOP BAR ===== -->
+<header class="top-bar" id="topBar">
+  <button class="top-btn home-btn" id="homeTopBtn" title="Home" aria-label="Go Home">🏠</button>
+  <div class="app-title-small" id="sectionTitle">LearniSnehas Tech</div>
+  <div class="top-right-btns">
+    <button class="top-btn" id="muteBtn" title="Mute Music" aria-label="Toggle Music">🎵</button>
+    <button class="top-btn" id="fullscreenBtn" title="Fullscreen" aria-label="Toggle Fullscreen">⛶</button>
+  </div>
+</header>
+
+<!-- ===== STARS / REWARD BAR ===== -->
+<div class="star-bar" id="starBar">
+  <span class="star-label">⭐</span>
+  <div class="star-count" id="starCount">0</div>
+  <div class="star-progress-wrap"><div class="star-progress-fill" id="starFill"></div></div>
+</div>
+
+<!-- ===================================================
+     HOME PAGE
+=================================================== -->
+<main id="homePage" class="page active">
+  <div class="home-inner">
+    <!-- Hero -->
+    <div class="home-hero">
+      <div class="book-character">📚</div>
+      <h1 class="home-title">LearniSnehas</h1>
+      <p class="home-subtitle">My First Learning Book!</p>
+      <div class="home-mascot-row">
+        <span class="bounce-item" style="--d:0s">🦊</span>
+        <span class="bounce-item" style="--d:.15s">🌈</span>
+        <span class="bounce-item" style="--d:.3s">🦄</span>
+        <span class="bounce-item" style="--d:.45s">🌟</span>
+        <span class="bounce-item" style="--d:.6s">🐨</span>
+      </div>
+    </div>
+
+    <!-- Menu Grid -->
+    <div class="home-menu">
+      <button class="menu-card card-alpha" onclick="showSection('alphabets')" aria-label="Alphabets">
+        <span class="menu-emoji">🔤</span>
+        <span class="menu-label">Alphabets</span>
+        <span class="menu-sub">A B C …</span>
+      </button>
+      <button class="menu-card card-numbers" onclick="showSection('numbers')" aria-label="Numbers">
+        <span class="menu-emoji">🔢</span>
+        <span class="menu-label">Numbers</span>
+        <span class="menu-sub">1 2 3 …</span>
+      </button>
+      <button class="menu-card card-words" onclick="showSection('words')" aria-label="Words">
+        <span class="menu-emoji">💬</span>
+        <span class="menu-label">Words</span>
+        <span class="menu-sub">Cat Dog…</span>
+      </button>
+      <button class="menu-card card-colors" onclick="showSection('colors')" aria-label="Colors">
+        <span class="menu-emoji">🎨</span>
+        <span class="menu-label">Colors</span>
+        <span class="menu-sub">Red Blue…</span>
+      </button>
+      <button class="menu-card card-shapes" onclick="showSection('shapes')" aria-label="Shapes">
+        <span class="menu-emoji">🔷</span>
+        <span class="menu-label">Shapes</span>
+        <span class="menu-sub">○ □ △ …</span>
+      </button>
+      <button class="menu-card card-quiz" onclick="showSection('quiz')" aria-label="Quiz">
+        <span class="menu-emoji">🧩</span>
+        <span class="menu-label">Quiz</span>
+        <span class="menu-sub">Test me!</span>
+      </button>
+      <button class="menu-card card-pronouns" onclick="showSection('pronouns')" aria-label="Pronouns">
+        <span class="menu-emoji">🙋</span>
+        <span class="menu-label">Pronouns</span>
+        <span class="menu-sub">This That…</span>
+      </button>
+      <button class="menu-card card-sentences" onclick="showSection('sentences')" aria-label="Sentences">
+        <span class="menu-emoji">✏️</span>
+        <span class="menu-label">Sentences</span>
+        <span class="menu-sub">Build it!</span>
+      </button>
+      <button class="menu-card card-opposites" onclick="showSection('opposites')" aria-label="Opposites">
+        <span class="menu-emoji">🔄</span>
+        <span class="menu-label">Opposites</span>
+        <span class="menu-sub">Big ↔ Small</span>
+      </button>
+      <button class="menu-card card-verbs" onclick="showSection('verbs')" aria-label="Action Words">
+        <span class="menu-emoji">🏃</span>
+        <span class="menu-label">Action Words</span>
+        <span class="menu-sub">Run Jump Eat</span>
+      </button>
+      <button class="menu-card card-fillquiz" onclick="showSection('fillquiz')" aria-label="Fill the Blank">
+        <span class="menu-emoji">❓</span>
+        <span class="menu-label">Fill Blank</span>
+        <span class="menu-sub">___ is a cat</span>
+      </button>
+      <button class="menu-card card-pronounquiz" onclick="showSection('pronounquiz')" aria-label="Pronoun Quiz">
+        <span class="menu-emoji">🎯</span>
+        <span class="menu-label">Pronoun Quiz</span>
+        <span class="menu-sub">He / She / It?</span>
+      </button>
+      <button class="menu-card card-stories" onclick="showSection('stories')" aria-label="Stories">
+        <span class="menu-emoji">📖</span>
+        <span class="menu-label">Stories</span>
+        <span class="menu-sub">Read &amp; Listen!</span>
+      </button>
+      <button class="menu-card card-fruits" onclick="showSection('fruits')" aria-label="Fruits and Vegetables">
+        <span class="menu-emoji">🍓</span>
+        <span class="menu-label">Fruits &amp; Veggies</span>
+        <span class="menu-sub">Apple Mango…</span>
+      </button>
+      <button class="menu-card card-bodyparts" onclick="showSection('bodyparts')" aria-label="Body Parts">
+        <span class="menu-emoji">🧒</span>
+        <span class="menu-label">My Body</span>
+        <span class="menu-sub">Head Eyes…</span>
+      </button>
+    </div>
+
+    <!-- Autoplay row -->
+    <div class="home-actions">
+      <button class="action-btn auto-btn" id="autoplayBtn" onclick="startAutoplay()">
+        <span>▶️</span> Auto Play
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     ALPHABETS PAGE
+=================================================== -->
+<main id="alphabetsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🔤 Alphabets</h2>
+    <div class="nav-hint">Tap a letter!</div>
+  </div>
+  <div class="alpha-grid" id="alphaGrid">
+    <!-- JS fills this -->
+  </div>
+
+  <!-- Detail Card (shows when letter clicked) -->
+  <div class="detail-overlay" id="alphaDetail" style="display:none">
+    <div class="detail-card">
+      <button class="detail-close" onclick="closeDetail('alphaDetail')">✕</button>
+      <div class="detail-letter" id="detailLetter">A</div>
+      <div class="detail-emoji" id="detailEmoji">🍎</div>
+      <div class="detail-word" id="detailWord">Apple</div>
+      <button class="speak-big-btn" id="alphaSpeakBtn" onclick="speakCurrentAlpha()">
+        🔊 <span>Say It!</span>
+      </button>
+      <div class="detail-nav-row">
+        <button class="detail-nav-btn" onclick="navigateDetail('alpha','prev')">◀ Prev</button>
+        <button class="detail-nav-btn" onclick="navigateDetail('alpha','next')">Next ▶</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     NUMBERS PAGE
+=================================================== -->
+<main id="numbersPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🔢 Numbers</h2>
+    <div class="nav-hint">Tap a number!</div>
+  </div>
+  <div class="numbers-grid" id="numbersGrid">
+    <!-- JS fills this -->
+  </div>
+  <div class="detail-overlay" id="numberDetail" style="display:none">
+    <div class="detail-card detail-card--number">
+      <button class="detail-close" onclick="closeDetail('numberDetail')">✕</button>
+      <div class="detail-number-big" id="detailNumber">1</div>
+      <div class="detail-counting" id="detailCounting">🍎</div>
+      <div class="detail-word" id="detailNumberWord">One</div>
+      <button class="speak-big-btn" onclick="speakCurrentNumber()">🔊 <span>Say It!</span></button>
+      <div class="detail-nav-row">
+        <button class="detail-nav-btn" onclick="navigateDetail('number','prev')">◀ Prev</button>
+        <button class="detail-nav-btn" onclick="navigateDetail('number','next')">Next ▶</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     WORDS PAGE
+=================================================== -->
+<main id="wordsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">💬 Words</h2>
+    <div class="nav-hint">Tap a word!</div>
+  </div>
+  <div class="words-grid" id="wordsGrid">
+    <!-- JS fills -->
+  </div>
+</main>
+
+<!-- ===================================================
+     COLORS PAGE
+=================================================== -->
+<main id="colorsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🎨 Colors</h2>
+    <div class="nav-hint">Tap a color!</div>
+  </div>
+  <div class="colors-grid" id="colorsGrid">
+    <!-- JS fills -->
+  </div>
+</main>
+
+<!-- ===================================================
+     SHAPES PAGE
+=================================================== -->
+<main id="shapesPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🔷 Shapes</h2>
+    <div class="nav-hint">Tap a shape!</div>
+  </div>
+  <div class="shapes-grid" id="shapesGrid">
+    <!-- JS fills -->
+  </div>
+</main>
+
+<!-- ===================================================
+     QUIZ PAGE
+=================================================== -->
+<main id="quizPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🧩 Quiz Time!</h2>
+    <div class="nav-hint" id="quizScore">Score: 0</div>
+  </div>
+  <div class="quiz-box" id="quizBox">
+    <div class="quiz-question" id="quizQuestion">What is this?</div>
+    <div class="quiz-target" id="quizTarget">🍎</div>
+    <div class="quiz-hint" id="quizHint">Listen and pick!</div>
+    <button class="speak-big-btn quiz-listen-btn" onclick="quizSpeak()">🔊 Listen</button>
+    <div class="quiz-options" id="quizOptions">
+      <!-- JS fills -->
+    </div>
+    <div class="quiz-result" id="quizResult"></div>
+    <button class="next-quiz-btn" id="nextQuizBtn" onclick="nextQuiz()" style="display:none">Next Question ▶</button>
+  </div>
+</main>
+
+<!-- ===================================================
+     PRONOUNS PAGE
+=================================================== -->
+<main id="pronounsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🙋 Pronouns</h2>
+    <div class="nav-hint">Tap to learn!</div>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="pronoun-tabs" id="pronounTabs">
+    <button class="ptab active" data-cat="demonstrative">📍 This / That</button>
+    <button class="ptab" data-cat="possessive">💛 My / Your</button>
+    <button class="ptab" data-cat="personal">👤 I / We</button>
+  </div>
+
+  <!-- Pronoun Cards Grid -->
+  <div class="pronoun-grid" id="pronounGrid"></div>
+
+  <!-- Big Detail Card -->
+  <div class="detail-overlay" id="pronounDetail" style="display:none">
+    <div class="detail-card pronoun-detail-card">
+      <button class="detail-close" onclick="closeDetail('pronounDetail')">✕</button>
+      <div class="pronoun-detail-word" id="pdWord">This</div>
+      <div class="pronoun-detail-emoji" id="pdEmoji">👇</div>
+      <div class="pronoun-detail-meaning" id="pdMeaning">Something near you</div>
+      <div class="pronoun-detail-example" id="pdExample">This is my cat.</div>
+      <button class="speak-big-btn" onclick="speakPronounDetail()">🔊 Say It!</button>
+      <div class="detail-nav-row">
+        <button class="detail-nav-btn" onclick="navigatePronoun('prev')">◀ Prev</button>
+        <button class="detail-nav-btn" onclick="navigatePronoun('next')">Next ▶</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     SENTENCE BUILDER PAGE
+=================================================== -->
+<main id="sentencesPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">✏️ Build a Sentence!</h2>
+    <div class="nav-hint" id="sentenceStarHint">🌟 Earn Stars!</div>
+  </div>
+
+  <div class="sentence-builder-box">
+
+    <!-- Sentence Display -->
+    <div class="sentence-display-wrap">
+      <div class="sentence-display" id="sentenceDisplay">
+        <span class="sentence-placeholder">Tap words below to build a sentence! 👇</span>
+      </div>
+      <div class="sentence-action-row">
+        <button class="sentence-btn clear-btn" onclick="clearSentence()">🗑️ Clear</button>
+        <button class="sentence-btn speak-sentence-btn" onclick="speakBuiltSentence()">🔊 Say It!</button>
+        <button class="sentence-btn submit-sentence-btn" onclick="checkSentence()">✅ Check!</button>
+      </div>
+    </div>
+
+    <!-- Word Bank Sections -->
+    <div class="wordbank-section">
+      <div class="wordbank-label">📍 Pronouns</div>
+      <div class="wordbank-row" id="wbPronouns"></div>
+    </div>
+    <div class="wordbank-section">
+      <div class="wordbank-label">⚡ Verbs (Action Words)</div>
+      <div class="wordbank-row" id="wbVerbs"></div>
+    </div>
+    <div class="wordbank-section">
+      <div class="wordbank-label">🐱 Nouns (Things)</div>
+      <div class="wordbank-row" id="wbNouns"></div>
+    </div>
+    <div class="wordbank-section">
+      <div class="wordbank-label">🎨 Describing Words</div>
+      <div class="wordbank-row" id="wbAdjectives"></div>
+    </div>
+
+    <!-- Example Sentences panel -->
+    <div class="example-sentences-wrap">
+      <div class="wordbank-label">📖 Example Sentences — Tap to hear!</div>
+      <div class="example-sentences-list" id="exampleSentencesList"></div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===================================================
+     OPPOSITES PAGE
+=================================================== -->
+<main id="oppositesPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🔄 Opposites</h2>
+    <div class="nav-hint">Tap to learn!</div>
+  </div>
+  <div class="opposites-grid" id="oppositesGrid"></div>
+</main>
+
+<!-- ===================================================
+     ACTION WORDS (VERBS) PAGE
+=================================================== -->
+<main id="verbsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🏃 Action Words</h2>
+    <div class="nav-hint">Tap &amp; act it out!</div>
+  </div>
+  <div class="verbs-grid" id="verbsGrid"></div>
+</main>
+
+<!-- ===================================================
+     FILL IN THE BLANK QUIZ PAGE
+=================================================== -->
+<main id="fillquizPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">❓ Fill the Blank!</h2>
+    <div class="nav-hint" id="fillScore">Score: 0</div>
+  </div>
+  <div class="quiz-box fillquiz-box" id="fillquizBox">
+    <div class="fill-progress-row">
+      <div class="fill-progress-bar"><div class="fill-progress-fill" id="fillProgressFill"></div></div>
+      <span class="fill-q-counter" id="fillQCounter">Q 1 / 10</span>
+    </div>
+    <div class="fill-sentence-wrap" id="fillSentenceWrap">
+      <!-- JS fills: words + blank -->
+    </div>
+    <button class="speak-big-btn fill-listen-btn" onclick="speakFillSentence()">🔊 Hear the sentence!</button>
+    <div class="fill-options" id="fillOptions"></div>
+    <div class="quiz-result" id="fillResult"></div>
+    <button class="next-quiz-btn" id="nextFillBtn" onclick="nextFillQuiz()" style="display:none">Next ▶</button>
+  </div>
+</main>
+
+<!-- ===================================================
+     PRONOUN QUIZ PAGE
+=================================================== -->
+<main id="pronounquizPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🎯 Pronoun Quiz!</h2>
+    <div class="nav-hint" id="pqScore">Score: 0</div>
+  </div>
+  <div class="quiz-box pquiz-box" id="pronounquizBox">
+    <div class="fill-progress-row">
+      <div class="fill-progress-bar"><div class="fill-progress-fill" id="pqProgressFill"></div></div>
+      <span class="fill-q-counter" id="pqCounter">Q 1 / 10</span>
+    </div>
+    <div class="pquiz-scene" id="pqScene">
+      <!-- Animated character scene -->
+    </div>
+    <div class="pquiz-question" id="pqQuestion">Who is this?</div>
+    <div class="fill-sentence-wrap" id="pqSentenceWrap"></div>
+    <button class="speak-big-btn fill-listen-btn" onclick="speakPQSentence()">🔊 Listen!</button>
+    <div class="fill-options" id="pqOptions"></div>
+    <div class="quiz-result" id="pqResult"></div>
+    <button class="next-quiz-btn" id="nextPQBtn" onclick="nextPronounQuiz()" style="display:none">Next ▶</button>
+  </div>
+</main>
+
+<!-- ===================================================
+     STORIES PAGE
+=================================================== -->
+<main id="storiesPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">📖 Stories</h2>
+    <div class="nav-hint">Tap a story!</div>
+  </div>
+  <div class="stories-shelf" id="storiesShelf"></div>
+
+  <!-- Story Reader Overlay -->
+  <div class="detail-overlay" id="storyReader" style="display:none">
+    <div class="story-reader-card">
+      <button class="detail-close" onclick="closeStoryReader()">✕</button>
+      <div class="story-title-bar">
+        <span class="story-reader-emoji" id="srEmoji">🦁</span>
+        <span class="story-reader-title" id="srTitle">The Brave Lion</span>
+      </div>
+      <!-- Story pages rendered here -->
+      <div class="story-pages" id="storyPages"></div>
+      <!-- Page nav -->
+      <div class="story-nav-row">
+        <button class="story-nav-btn" id="storyPrevBtn" onclick="storyNavPage(-1)">◀ Back</button>
+        <span class="story-page-indicator" id="storyPageIndicator">1 / 4</span>
+        <button class="story-nav-btn story-nav-next" id="storyNextBtn" onclick="storyNavPage(1)">Next ▶</button>
+      </div>
+      <!-- Controls -->
+      <div class="story-controls">
+        <button class="speak-big-btn story-play-btn" onclick="readCurrentPage()">🔊 Read Page</button>
+        <button class="speak-big-btn story-auto-btn" id="storyAutoBtn" onclick="toggleStoryAuto()">▶️ Auto Read</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     FRUITS & VEGETABLES PAGE
+=================================================== -->
+<main id="fruitsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🍓 Fruits &amp; Veggies</h2>
+    <div class="nav-hint">Tap to learn!</div>
+  </div>
+  <div class="fruits-tabs" id="fruitsTabs">
+    <button class="ftab active" data-fcat="fruits">🍎 Fruits</button>
+    <button class="ftab" data-fcat="veggies">🥕 Vegetables</button>
+  </div>
+  <div class="fruits-grid" id="fruitsGrid"></div>
+
+  <div class="detail-overlay" id="fruitDetail" style="display:none">
+    <div class="detail-card fruit-detail-card">
+      <button class="detail-close" onclick="closeDetail('fruitDetail')">✕</button>
+      <div class="fruit-detail-emoji" id="fdEmoji">🍎</div>
+      <div class="fruit-detail-name" id="fdName">Apple</div>
+      <div class="fruit-detail-color" id="fdColor">Red &amp; Crunchy</div>
+      <div class="fruit-detail-fact" id="fdFact">Apples grow on trees!</div>
+      <button class="speak-big-btn" onclick="speakFruitDetail()">🔊 Say It!</button>
+      <div class="detail-nav-row">
+        <button class="detail-nav-btn" onclick="navigateFruit('prev')">◀ Prev</button>
+        <button class="detail-nav-btn" onclick="navigateFruit('next')">Next ▶</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===================================================
+     BODY PARTS PAGE
+=================================================== -->
+<main id="bodypartsPage" class="page">
+  <div class="section-header-row">
+    <h2 class="section-heading">🧒 My Body</h2>
+    <div class="nav-hint">Tap a body part!</div>
+  </div>
+
+  <!-- Interactive SVG body diagram + cards below -->
+  <div class="body-layout">
+    <!-- Left: Interactive body figure -->
+    <div class="body-figure-wrap">
+      <div class="body-figure-title">Tap any part! 👇</div>
+      <div class="body-figure" id="bodyFigure">
+        <!-- Hotspot buttons rendered by JS -->
+      </div>
+    </div>
+    <!-- Right: Info card -->
+    <div class="body-info-card" id="bodyInfoCard">
+      <div class="body-info-emoji" id="biEmoji">🙂</div>
+      <div class="body-info-name" id="biName">Tap a body part!</div>
+      <div class="body-info-fact" id="biFact">Choose any part from the figure.</div>
+      <button class="speak-big-btn body-speak-btn" id="bodySpeakBtn" onclick="speakBodyPart()" style="display:none">🔊 Say It!</button>
+    </div>
+  </div>
+
+  <!-- All parts grid below -->
+  <div class="body-parts-grid" id="bodyPartsGrid"></div>
+</main>
+
+<!-- ===== CELEBRATE OVERLAY ===== -->
+<div class="celebrate-overlay" id="celebrateOverlay" style="display:none">
+  <div class="celebrate-box">
+    <div class="celebrate-emoji" id="celebrateEmoji">🎉</div>
+    <div class="celebrate-msg" id="celebrateMsg">Amazing!</div>
+    <div class="celebrate-stars" id="celebrateStars">⭐⭐⭐</div>
+    <button class="celebrate-close" onclick="closeCelebrate()">YAY! 🎊</button>
+  </div>
+</div>
+
+<!-- ===== AUTOPLAY OVERLAY ===== -->
+<div class="autoplay-overlay" id="autoplayOverlay" style="display:none">
+  <div class="autoplay-card">
+    <div class="autoplay-subject" id="autoSubject">A</div>
+    <div class="autoplay-emoji" id="autoEmoji">🍎</div>
+    <div class="autoplay-word" id="autoWord">Apple</div>
+    <div class="autoplay-phrase" id="autoPhrase">A for Apple</div>
+    <div class="autoplay-bar-wrap"><div class="autoplay-bar" id="autoBar"></div></div>
+    <button class="autoplay-stop" onclick="stopAutoplay()">✕ Stop</button>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
